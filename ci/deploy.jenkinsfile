@@ -1,0 +1,23 @@
+library('common')
+
+pipeline {
+    agent {
+        kubernetes {
+            yaml k8sAgentConfig()
+        }
+    }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '30', artifactNumToKeepStr: '30'))
+        withFolderProperties()
+    }
+    stages {
+        stage('prepare artifacts') {
+            steps {
+                script {
+                    prepareEnv(env)
+                    buildProject(env)
+                }
+            }
+        }
+    }
+}
