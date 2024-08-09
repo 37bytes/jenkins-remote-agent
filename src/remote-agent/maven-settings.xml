@@ -8,4 +8,56 @@
             <mirrorOf>central</mirrorOf>
         </mirror>
     </mirrors>
+    <profiles>
+        <profile>
+            <!--  no access from DC hh  -->
+            <id>ignore-repositories-for-hh-dc</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>hh-public</id>
+                    <name>hh public releases repository</name>
+                    <url>http://m2.hh.ru/content/repositories/public-releases</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>public-jboss</id>
+                    <url>https://repository.jboss.org/nexus/content/groups/public-jboss</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>jetbrains</id>
+                    <url>http://repository.jetbrains.com/utils</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>dev-java-net-glassfish-m2</id>
+                    <url>http://download.java.net/maven/glassfish</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
 </settings>
